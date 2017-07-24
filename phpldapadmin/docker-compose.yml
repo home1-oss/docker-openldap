@@ -1,0 +1,24 @@
+
+version: '2.1'
+services:
+  openldap-admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${OPENLDAPADMIN_DOMAIN:-phpldapadmin}.${INFRASTRUCTURE:-internal}
+    image: ${DOCKER_REGISTRY:-home1oss}/phpldapadmin:0.6.11
+    environment:
+    #- PHPLDAPADMIN_LDAP_CLIENT_TLS=false
+    - PHPLDAPADMIN_LDAP_HOSTS=${OPENLDAP_DOMAIN:-ldap}.${INFRASTRUCTURE:-internal}
+    - PHPLDAPADMIN_SERVER_ADMIN=admin@${OPENLDAP_DOMAIN:-ldap}.${INFRASTRUCTURE:-internal}
+    #external_links:
+    #- ${OPENLDAP_DOMAIN:-ldap}.${INFRASTRUCTURE:-internal}:${OPENLDAP_DOMAIN:-ldap}.${INFRASTRUCTURE:-internal}
+    hostname: ${OPENLDAPADMIN_DOMAIN:-phpldapadmin}.${INFRASTRUCTURE:-internal}
+    ports:
+    - "6443:443/tcp"
+    restart: always
+
+networks:
+  default:
+    external:
+      name: oss-network
