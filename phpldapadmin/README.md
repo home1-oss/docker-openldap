@@ -1,7 +1,7 @@
 
 # phpldapadmin
 
-https://ldapadmin.internal:6443/
+https://phpldapadmin.internal:6443/
 
 Default login info
 if LDAP_DOMAIN=internalLogin DN: cn=admin,dc=internal
