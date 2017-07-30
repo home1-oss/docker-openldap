@@ -1,11 +1,4 @@
 
-# see: https://github.com/osixia/docker-openldap
-
-# docker exec ldap.local ldapsearch -x -h ldap.local -b dc=example,dc=com -D "cn=admin,dc=example,dc=com" -w admin_pass
-# open https://phpldapadmin.local:6443
-# Login DN: cn=admin,dc=example,dc=com
-# password: admin_pass
-
 version: '2.1'
 services:
   openldap:

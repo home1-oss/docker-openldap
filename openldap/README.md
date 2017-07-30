@@ -51,6 +51,10 @@ EOF
 ldapsearch -x -D "cn=admin,dc=internal" -w admin_pass -h ldap.internal -b "dc=internal"
 
 ldapdelete -x -D "cn=admin,dc=internal" -w admin_pass "cn=user,cn=developer,ou=users,dc=internal"
+
+#docker exec ldap.internal ldapsearch -x -D "cn=admin,dc=example,dc=com" -w admin_pass -h ldap.internal -b dc=example,dc=com
 ```
 
 see: http://www.thegeekstuff.com/2015/02/openldap-add-users-groups/
+
+see: https://github.com/osixia/docker-openldap
